@@ -13,10 +13,8 @@ var NoteSchema = Schema({
     date_updated: {type: Date}
 });
 
-NoteSchema
-    .virtual('url')
-    .get(function(){
-        return '/note/'+this._id;
-    });
+NoteSchema.virtual('url').get(function(){
+    return '/note/'+this._id;
+});
 
 module.exports = mongoose.model('Note', NoteSchema);

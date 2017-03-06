@@ -8,6 +8,7 @@ var Note = require('../models/note');
 //get all notes
 exports.note_list = function(req, res, next){
     //res.send('not implemented: note list');
+
     Note.find({},'text category')
         .populate('category')
         .exec(function(err, result){
@@ -20,7 +21,13 @@ exports.note_list = function(req, res, next){
 
 //get one
 exports.note_get = function(req, res, next){
-    res.send('not implemented: note get');
+    //res.send('not implemented: note get');
+    Note.findById(req.params.id)
+        .exec(function(err, result){
+            if(err){return next(err)};
+            //on success
+            res.json(result);
+        });
 }
 
 //create

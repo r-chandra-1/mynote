@@ -34,7 +34,7 @@
             <div class="col-md-6">
                 <ul>
                     <li ng-repeat="n in notes">
-                        {{n.category.display_name}} {{n.text}}
+                        <a ng-href="/note/{{n._id}}">{{n.category.display_name}} {{n.text}}</a>
                     </li>
                 </ul>
             </div>
