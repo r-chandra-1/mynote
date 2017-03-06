@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="noteapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../javascripts/angular-1.5.8.min.js"></script>
+    <script src="../javascripts/angular-route-1.5.9.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../app.js"></script>
+    <script src="../controller.js"></script>
+    <script src="../service.js"></script>
+    <base href="/">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body ng-controller="NoteController">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                There are {{numNotes}} notes in {{numCategories}} categories at the moment.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <ul>
+                    <li ng-repeat="c in categories">
+                        {{c.display_name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li ng-repeat="n in notes">
+                        {{n.category.display_name}} {{n.text}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

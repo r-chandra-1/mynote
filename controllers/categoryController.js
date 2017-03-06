@@ -6,7 +6,14 @@ var Category = require('../models/category');
 
 //get all categories
 exports.category_list = function(req, res, next){
-    res.send('not implemented: category list');
+    //res.send('not implemented: category list');
+    Category.find({})
+        .exec(function(err, result){
+            if(err){return next(err)};
+            //on success
+            res.json(result);
+        });
+
 }
 
 //get one

@@ -7,10 +7,10 @@ var router = express.Router();
 //require controllers
 var category_controller = require('../controllers/categoryController');
 var note_controller = require('../controllers/noteController');
+var common_controller = require('../controllers/commonController');
 
 //home page
-router.get('/', note_controller.index);
-
+router.get('/', common_controller.index);
 
 
 //get all notes

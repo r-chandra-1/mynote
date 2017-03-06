@@ -5,15 +5,17 @@
 var Note = require('../models/note');
 
 
-//index for notes and categories
-
-exports.index =  function(req, res, next){
-    res.send('not implemented: index');
-}
-
 //get all notes
 exports.note_list = function(req, res, next){
-    res.send('not implemented: note list');
+    //res.send('not implemented: note list');
+    Note.find({},'text category')
+        .populate('category')
+        .exec(function(err, result){
+            if(err){return next(err)};
+            //on success
+            res.json(result);
+        });
+
 }
 
 //get one
